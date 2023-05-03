@@ -72,19 +72,36 @@ void printll(){
 }
 
 int main(){
-	int n,x,del;
+	int n,x,del,limit;
+	int clock_t,start_t,end_t;
+	double total_t;
 	printf("Enter number of elements to insert:\t");
 	scanf("%d",&n);
-    printf("Enter the numbers:  ");
+	printf("Enter the limit\n");
+	scanf("%d",&limit);
+  
 	for(int i=0;i<n;i++){
-		scanf("%d",&x);
-		insertll(x);
+		
+		insertll(rand()%limit);
 	}
+	 printll();
 	printf("Enter element to delete:  ");
 	scanf("%d",&del);
+	start_t=clock();
 	deletell(del);
+	end_t=clock();
+	printf("deletion process completed\n");
+	total_t=(double)(end_t - start_t) / CLOCKS_PER_SEC;
+	printf("Total time taken for deletion is %f\n",total_t);
     printf("Updated list after deletion:  ");
     printll();
+	start_t=clock();
+	printf("The searching for the next largest element is going to be started\n");
+	
 	largell(del);
+	end_t=clock();
+	printf("Traversal completed\n");
+	total_t=(double)(end_t - start_t) / CLOCKS_PER_SEC;
+	printf("Total time taken for the searching process is %f\n",total_t);
 	return 0;
 }
