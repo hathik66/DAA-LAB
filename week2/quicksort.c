@@ -16,7 +16,7 @@ while(i<j)
 {
 	do
 	{
-		i++;
+		i++
 	}while(arr[i]<=pivot);
 	do
 	{
